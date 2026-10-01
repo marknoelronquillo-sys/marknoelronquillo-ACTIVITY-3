@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Activity 3 - Place Finder</title>
+  <style>
+    :root { --ink:#241f3d; --muted:#6e6890; --primary:#5b3df5; --line:#e6e3f2; }
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, Arial, sans-serif; margin:0; padding:2rem; color:var(--ink); background:#fff; }
+    .wrap { max-width: 720px; margin: 0 auto; }
+    h1 { font-size: 1.4rem; margin-bottom: .25rem; }
+    p.sub { color: var(--muted); margin-top: 0; }
+    .row { display: flex; gap: .5rem; margin: 1.5rem 0; }
+    input { flex: 1; padding: .7rem .9rem; font-size: 1rem; border: 1px solid var(--line); border-radius: 8px; }
+    button { padding: .7rem 1.2rem; font-size: 1rem; border: 0; border-radius: 8px; background: var(--primary); color: #fff; cursor: pointer; }
+    button:disabled { opacity: .5; cursor: not-allowed; }
+    #status { min-height: 1.5rem; color: var(--muted); }
+    #status.error { color: #c0392b; }
+    ul { list-style: none; padding: 0; }
+    li { border: 1px solid var(--line); border-radius: 8px; padding: .8rem 1rem; margin-bottom: .6rem; }
+    .name { font-weight: 700; }
+    .meta { color: var(--muted); font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Place Finder</h1>
+    <p class="sub">Type a place name. Data from the Open-Meteo geocoding API (no API key required).</p>
+
+    <div class="row">
+      <input id="q" type="text" placeholder="e.g. Cantilan, Tandag, Surigao" autocomplete="off">
+      <button id="go">Search</button>
+    </div>
+
+    <!-- The FOUR UI STATES all report through this one element -->
+    <div id="status"></div>
+
+    <ul id="results"></ul>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
